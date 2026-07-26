@@ -1,9 +1,17 @@
 import streamlit as st
 import pickle
 import string
-from nltk.corpus import stopwords
 import nltk
+from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
+
+@st.cache_resource
+def download_nltk():
+    nltk.download("punkt")
+    nltk.download("punkt_tab")
+    nltk.download("stopwords")
+
+download_nltk()
 
 ps = PorterStemmer()
 
